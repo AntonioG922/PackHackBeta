@@ -4,11 +4,6 @@ $( document ).ready(function() {
     //Globals
     var fullSite = 0;
     
-    $(function()
-    {
-        $('body').jScrollPane();
-    });
-    
     // Falling binary effect
     // ** Adapted from matrix rain animation courtesy of thecodeplayer
     // ** Link: http://thecodeplayer.com/walkthrough/matrix-rain-animation-html5-canvas-javascript
@@ -20,8 +15,8 @@ $( document ).ready(function() {
      * 1) Use screen width so when readjusting browser siz binary rain doesnt get cut off
      * 2) Subtract 2 so that the canvas width matches width: 100% (2?)
      */
-    c.height = screen.availHeight - 2;
-    c.width = screen.availWidth - 2;
+    c.height = screen.availHeight;
+    c.width = screen.availWidth;
     
     //binary characters - taken from the unicode charset
     var binary = "10010100011110100101010011101000101010";
