@@ -1,26 +1,27 @@
 //document ready
-document.addEventListener("DOMContentLoaded", function(event) { 
+$( document ).ready(function() { 
     
     //Globals
     var fullSite = 0;
+    
+    $(function()
+    {
+        $('body').jScrollPane();
+    });
     
     // Falling binary effect
     // ** Adapted from matrix rain animation courtesy of thecodeplayer
     // ** Link: http://thecodeplayer.com/walkthrough/matrix-rain-animation-html5-canvas-javascript
     var c = document.getElementById("c");
-    var c1 = document.getElementById("c1");
     var ctx = c.getContext("2d");
-    var ctx1 = c1.getContext("2d");
     
     /* 
      * Make the canvas full screen
      * 1) Use screen width so when readjusting browser siz binary rain doesnt get cut off
      * 2) Subtract 2 so that the canvas width matches width: 100% (2?)
      */
-    c.height = "800";
+    c.height = screen.availHeight - 2;
     c.width = screen.availWidth - 2;
-    c1.height = "800";
-    c1.width = screen.availWidth - 2;
     
     //binary characters - taken from the unicode charset
     var binary = "10010100011110100101010011101000101010";
@@ -41,15 +42,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     {
         //Black BG for the canvas
         //translucent BG to show trail
-        ctx.fillStyle = "rgba(204, 0, 3, 0.08)";
+        ctx.fillStyle = "rgba(195,49,73, 0.08)";
         ctx.fillRect(0, 0, c.width, c.height);
-        ctx1.fillStyle = "rgba(204, 0, 3, 0.08)";
-        ctx1.fillRect(0, 0, c1.width, c1.height);
 
         ctx.fillStyle = "rgba(255, 255, 255, .6)"; //white, semi-transparent text
         ctx.font = font_size + "px arial";
-        ctx1.fillStyle = "rgba(255, 255, 255, .6)"; //white, semi-transparent text
-        ctx1.font = font_size + "px arial";
         //looping over drops
         for(var i = 0; i < drops.length; i++)
         {
@@ -57,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var text = binary[Math.floor(Math.random()*binary.length)];
             //x = i*font_size, y = value of drops[i]*font_size
             ctx.fillText(text, i*font_size, drops[i]*font_size);
-            ctx1.fillText(text, i*font_size, drops[i]*font_size);
 
             //sending the drop back to the top randomly after it has crossed the screen
             //adding a randomness to the reset to make the drops scattered on the Y axis
@@ -71,7 +67,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     setInterval(draw, 33);
     
-    window.onscroll = function(){
-        document.getElementsByClassName("arrow")[0].style.opacity = 1 - window.scrollY / 250; //250 is fade pixels 
-      };
+    //Open answers for questions in FAQ
+    $('.question').on('click', function() {
+        $(this).toggleClass("reveal-answer");
+    });
+    
+    /*
+    $('.about-section').mousemove(function (e) {
+        var objLeft = $(this).offset().left;
+        var objTop = $(this).offset().top;
+
+        var objCenterX = objLeft + $(this).width() / 2;
+        var objCenterY = objTop + $(this).height() / 2;
+        
+        $(this).css("clip-path", function() {
+            var maxPercentChange = 10; //Adjust to create more skewed parallelogram
+            var relCursPosX = e.pageX - objCenterX;
+            var relCursPosY = e.pageY - objCenterY;
+            var topLeftCornerPos = 10 + (-1 * (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) + maxPercentChange/2 * (relCursPosY / (objCenterY - objTop))));
+            var botLeftCornerPos = 90 - (-1 * (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) - maxPercentChange/2 * (relCursPosY / (objCenterY - objTop))));
+            var topRightCornerPos = 10 + (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) - maxPercentChange/2 * (relCursPosY / (objCenterY - objTop)));
+            var botRightCornerPos = 90 - (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) + maxPercentChange/2 * (relCursPosY / (objCenterY - objTop)));
+                
+            return "polygon(0% " + topLeftCornerPos + "%, 100% " + topRightCornerPos + "%, 100% " + botRightCornerPos + "%, 0% " + botLeftCornerPos + "%)";
+        });
+    });
+    */
 });

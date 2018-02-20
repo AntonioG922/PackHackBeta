@@ -1,5 +1,7 @@
 :root {
-    --main-bg-color-red: rgb(204, 0, 3);
+    --red: #C33149;
+    --main-bg-color-white: #F3F3F3;
+    --black: #2D2D2A;
 }
 
 body, html {
@@ -9,6 +11,7 @@ body, html {
     min-width: 320px;
     max-width: 100%;
     margin: 0px;
+    color: #2D2D2A;
     scroll-behavior: smooth;
 }
 
@@ -23,7 +26,8 @@ hr {
 
 canvas {
     display: block;
-    position: absolute;
+    position: fixed;
+    z-index: -1;
 }
 
 .page {
@@ -31,21 +35,18 @@ canvas {
 }
 
 #header {
-    height: 800px;
-}
-
-.header-inset{
-    width: 100%;
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin-left: 0px;
     color: white;
-    font-family: Montserrat,sans-serif;
 }
 
-.header-inset img {
-    margin-top: 75px;
+.inset{
+    width: 100%;
+    position: relative;
+    margin-left: 0px;
+    font-family: Montserrat, sans-serif;
+}
+
+.inset img {
+    margin-top: 25px;
 }
 
 .header-fade{
@@ -70,87 +71,134 @@ canvas {
     margin: 50px;
 }
 
-.arrow {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  margin-left: -20px;
-  width: 40px;
-  height: 60px;
-  color: #CCC;
-  z-index: 100;
-  -moz-animation: bounce 4s infinite;
-  -webkit-animation: bounce 4s infinite;
-  animation: bounce 4s infinite;
-}
-
-.arrow a {
-    color: #CCC;
+#registerBtn {
+    font-family: Montserrat;
+    position: relative;
+    margin-bottom: 50px
 }
 
 .canvas-fade {
     height: 50px;
     width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 1;
 }
 
 .fade-out {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
-    top: 750px;
 }
 
 .fade-in {
     background: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
-    0: 750px;
 }
 
 .section-title {
     margin-top: 100px;
-    height: 100px;
-    color: var(--main-bg-color-red);
+    margin-bottom: 50px;
+    padding: 10px;
+    color: var(--red);
+    background-color: var(--main-bg-color-white);
     width: 100%;
     z-index: 1;
     font-family: Montserrat;
-}
-
-.canvas-shadow-inset {
-    position: relative;
+    text-shadow: 2px 2px 5px rgba(45, 45, 42, .4);
+    -webkit-clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
+    clip-path: polygon(40% 0%, 60% 10%, 60% 90%, 40% 100%);
+    filter: drop-shadow(1px 16px 20px var(--black));
 }
 
 .row-margin-reset {
     margin-right: 0;
 }
 
-#about {
-    height: 800px;
+.about-section {
+    padding: 30px;
+    background-color: #F3F3F3;
+    z-index: 1;
+    margin-bottom: 20px;
+    filter: drop-shadow(16px 16px 20px var(--black));
+}
+
+.about-section h4 {
+    color: var(--red);
+}
+
+.clip-path-left {
+    -webkit-clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
+    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
+}
+
+.clip-path-right {
+    -webkit-clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
 }
 
 #faq {
-    height: 800px;
-    background-color: #F3F3F3;
+    padding-bottom: 100px;
     font-family: Montserrat;
+    background-color: #F3F3F3;
+    text-shadow: 2px 2px 5px rgba(45, 45, 42, .4);
+}
+
+.even {
+    background-color: var(--red);
 }
 
 .question {
-    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 95%;
+    max-height: 52px;
+    overflow: hidden;
+    -webkit-transition: width .5s; /* Safari */
+    transition: width .5s, max-height .5s;
+}
+
+.question:hover {
+    max-height: 66px;
+    cursor: pointer;
+    transition: width .5s, max-height .5s;
+}
+
+.reveal-answer {
+    max-height: 100px !important;
+    -webkit-transition: max-height .5s; /* Safari */
+    transition: max-height .5s;
+}
+
+.reveal-answer h4 {
+    padding: 10px;
 }
 
 .question h4 {
-    color: var(--main-bg-color-red);
+    padding-bottom: 10px;
+    -webkit-transition: padding .5s; /* Safari */
+    transition: padding .5s;
+}
+
+.question:hover h4{
+    padding: 10px;
 }
 
 .question span {
-    padding-left: 5%;
+    -webkit-transition: width .5s; /* Safari */
+    transition: all 2s;
+}
+
+.question:hover span {
+}
+
+.even h4 {
+    color: #F3F3F3;
+}
+
+.odd h4 {
+    color: var(--red);
 }
 
 #footer {
     height: 200px;
     width: 100%;
     color: white;
-    background-color: var(--main-bg-color-red);
+    background-color: var(--red);
     font-family: 'Montserrat';
 }
 
@@ -169,54 +217,4 @@ canvas {
     .offset-4 {
         margin-left: 16.666667%;
     }
-}
-
-/* Bounce animation for arrow */
-@-moz-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    -ms-transform: translateY(-30px);
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
 }
