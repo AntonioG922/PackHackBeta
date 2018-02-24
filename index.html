@@ -19,6 +19,7 @@
   
   <!-- Logo -->
   <link rel="logo" href="PackHack_Logo.png">
+  <link rel="logo" href="PackHack_Logo_Red.png">
     
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -36,59 +37,51 @@
 
 <body>
     <canvas id="c"></canvas>
-    <div id="header" class="row row-margin-reset" >
-        <div class="row inset">
-            <div class="col-8 col-md-4 col-centered text-center">
-                <img src="PackHack_Logo.png" />
-                <br />
-                <br />
-                <span>PackHacks 2018 at NC State University</span>
-                <br />
-                <br />
+    <div class="theme-picker">
+        <div class="color-ball theme-1 active-theme"></div>
+        <div class="color-ball theme-2"></div>
+        <div class="color-ball theme-3"></div>
+        <div class="color-ball theme-4"></div>
+        <div class="color-ball theme-5"></div>
+        <div id="theme-pullout"><i class="fas fa-angle-right fa-2x"></i></div>
+    </div>
+    <div id="header">
+        <div class="col-8 col-md-4 col-centered text-center">
+            <img src="PackHack_Logo.png" />
+            <br />
+            <br />
+            <span>PackHacks 2018 at NC State University</span>
+            <br />
+            <br />
             <a href="https://antoniogargano.typeform.com/to/VpqL57" target="_blank"><button id="registerBtn" class="btn">Register</button></a>
-            </div>
-            <div class="canvas-fade fade-out"></div>
         </div>
     </div>
-    <div id="faq" class="row row-margin-reset" style="height: 400px;"></div>
-    <div id="about" class="row row-margin-reset" >
-        <div class="inset">
-            <div class="canvas-fade fade-in"></div>
-            <div class="container">
-                <div class="text-center section-title">
-                    <div class="col-6 col-centered">
-                        <h2>Info</h2>
-                    </div>
+    <div id="details">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 section-title">
+                    <h2>Details</h2>
+                    <hr />
                 </div>
-                <div class="row about-section clip-path-left">
-                    <div class="col-md-4 col-centered">
-                        <h4>What is a Hackathon?</h4>
-                    </div>
-                    <div class="col-md-8">
-                        <span>No, it's not that kind of hacking. Hackathons provide a venue for self-expression and creativity through technology. People with technical backgrounds come together, form teams around a problem or idea, and collaboratively code a unique solution from scratch — these generally take shape in the form of websites, mobile apps, and robots.</span>
-                    </div>
+                <div class="col-lg-4 icon-section divider">
+                    <i class="fas fa-code fa-3x" style="color: #3C91E6"></i>
+                    <h4><b>Hack</b></h4>
+                    <span>No, it's not that kind of hacking. Hackathons provide a venue for self-expression and creativity through technology. People with technical backgrounds come together, form teams around a problem or idea, and collaboratively code a unique solution from scratch — these generally take shape in the form of websites, mobile apps, and robots. So grab a couple friends and come code and build to your hearts desire.</span>
                 </div>
-                <div class="row about-section clip-path-right">
-                    <div class="col-md-4 col-centered">
-                        <h4>How it Works</h4>
-                    </div>
-                    <div class="col-md-8">
-                        <span>Hundreds of student hackers from across the state and country  </span>
-                    </div>
+                <div class="col-lg-4 icon-section divider">
+                    <i class="fas fa-coffee fa-3x" style="color: #FF9F1C"></i>
+                    <h4><b>Food</b></h4>
+                    <span>No, it's not that kind of hacking. Hackathons provide a venue for self-expression and creativity through technology. People with technical backgrounds come together, form teams around a problem or idea, and collaboratively code a unique solution from scratch — these generally take shape in the form of websites, mobile apps, and robots. So grab a couple friends and come code and build to your hearts desire.</span>
                 </div>
-                <div class="row about-section clip-path-left">
-                    <div class="col-md-4 col-centered">
-                        <h4>Why Bother</h4>
-                    </div>
-                    <div class="col-md-8">
-                        <span>For anyone looking to enter the tech field, participating in a hackathon can be a great learning experience and offers a unique opportunity to build a powerful network. </span>
-                    </div>
+                <div class="col-lg-4 icon-section">
+                    <i class="fas fa-trophy fa-3x" style="color: #CED3DC"></i>
+                    <h4><b>Prizes</b></h4>
+                    <span>No, it's not that kind of hacking. Hackathons provide a venue for self-expression and creativity through technology. People with technical backgrounds come together, form teams around a problem or idea, and collaboratively code a unique solution from scratch — these generally take shape in the form of websites, mobile apps, and robots. So grab a couple friends and come code and build to your hearts desire.</span>
                 </div>
             </div>
-            <div class="canvas-fade fade-out"></div>
-        </div>
+        </div>    
     </div>
-    <div id="faq" class="row row-margin-reset" >
+    <div id="faq">
         <div class="container">
             <div class="row">
                 <div class="section-title text-center">
@@ -96,37 +89,61 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-9 col-centered text-center">
-                    <div id="q1" class="even question col-centered">
+                <div class="questions col-md-9 col-centered text-center">
+                    <div class="question col-centered">
+                        <h4>How much does the event cost?</h4>
+                        <span>$0. The event is free to attend.</span>
+                    </div>
+                    <div class="question col-centered">
                         <h4>When is PackHacks?</h4>
                         <span>March 24th</span>
                     </div>
-                    <div class="odd question col-centered">
+                    <div class="question col-centered">
                         <h4>Where is PackHacks hosted?</h4>
-                        <span>On NC State campus, in the engineering buildings</span>
+                        <span>NC State, location to be announced soon</span>
                     </div>
-                    <div class="even question col-centered">
-                        <h4>Will I get a t-shirt?</h4>
+                    <div class="question col-centered">
+                        <h4>How does the competition work?</h4>
+                        <span>Teams of up to 4 will hack together an idea and present it to the judges. The judges will then select the best ones. All hacks must be completed at the hackathon.</span>
+                    </div>
+                    <div class="question col-centered">
+                        <h4>What do I get?</h4>
+                        <span>Swag, T-Shirt, valuable experience</span>
+                    </div>
+                    <div class="question col-centered">
+                        <h4>Prizes?</h4>
+                        <span>Various hardware and software goodies</span>
+                    </div>
+                    <div class="question col-centered">
+                        <h4>Do I need prior experience?</h4>
+                        <span>No experience, no problem. We'll be having workshops on making apps and working on hardware among other things.</span>
+                    </div>
+                    <div class="question col-centered">
+                        <h4>Do I need to bring a computer?</h4>
                         <span>Yes</span>
                     </div>
-                    <div class="odd question col-centered">
-                        <h4>Will I get a t-shirt?</h4>
-                        <span>Yes</span>
+                    <div class="question col-centered">
+                        <h4>Will hardware be provided?</h4>
+                        <span>Yes, but feel free to bring your own</span>
+                    </div>
+                    <div class="question col-centered">
+                        <h4>Who do I contact for more info?</h4>
+                        <span>ncsupackhacks@gmail.com</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="footer" class="row no-gutters">
-        <div class="col-12 col-centered text-center footer-panel">
-            <br />
-            <br />
-            <h4>PackHacks</h4>
-            <br />
-            <a href="#header" style="margin-left: -84px" id="backToTopBtn" title="Back to Top"><i class="fas fa-arrow-up fa-2x"></i></a>
-            <a href="mailto:ncsupackhacks@gmail.com" style="margin-left: -16px;"><i class="fas fa-envelope fa-2x"></i></a>
-            <a href="https://www.facebook.com/packHacks2018/" target="_blank" style="margin-left: 56px"><i class="fab fa-facebook-square fa-2x"></i></a>
+            <div class="col-12 col-centered text-center footer-panel">
+                <br />
+                <br />
+                <h4>PackHacks</h4>
+                <br />
+                <a href="#header" style="margin-left: -84px" id="backToTopBtn" title="Back to Top"><i class="fas fa-arrow-up fa-2x"></i></a>
+                <a href="mailto:ncsupackhacks@gmail.com" style="margin-left: -16px;"><i class="fas fa-envelope fa-2x"></i></a>
+                <a href="https://www.facebook.com/packHacks2018/" target="_blank" style="margin-left: 56px"><i class="fab fa-facebook-square fa-2x"></i></a>
+            </div>
         </div>
-    </div>
 </body>
 </html>

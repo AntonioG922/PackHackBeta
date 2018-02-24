@@ -3,6 +3,11 @@ $( document ).ready(function() {
     
     //Globals
     var fullSite = 0;
+    var color
+    var canvasBackgroundColor = "rgb(204, 0, 0)",
+        canvasTextColor = "rgb(255, 255, 255)",
+        activeImage = "PackHack_Logo.png",
+        nonActiveImage = "PackHack_Logo_Red.png";
     
     // Falling binary effect
     // ** Adapted from matrix rain animation courtesy of thecodeplayer
@@ -37,10 +42,12 @@ $( document ).ready(function() {
     {
         //Black BG for the canvas
         //translucent BG to show trail
-        ctx.fillStyle = "rgba(195,49,73, 0.08)";
+        ctx.globalAlpha = 0.08; //opacity
+        ctx.fillStyle = canvasBackgroundColor;
         ctx.fillRect(0, 0, c.width, c.height);
 
-        ctx.fillStyle = "rgba(255, 255, 255, .6)"; //white, semi-transparent text
+        ctx.globalAlpha = 0.6; //opacity
+        ctx.fillStyle = canvasTextColor; //white, semi-transparent text
         ctx.font = font_size + "px arial";
         //looping over drops
         for(var i = 0; i < drops.length; i++)
@@ -65,6 +72,34 @@ $( document ).ready(function() {
     //Open answers for questions in FAQ
     $('.question').on('click', function() {
         $(this).toggleClass("reveal-answer");
+    });
+    
+    $("#theme-pullout").click(function() {
+        $(".theme-picker").toggleClass('active-theme-picker');
+    });
+    
+    $('.color-ball').click(function() {
+        if($(this).hasClass('active-theme'))
+            return;
+        $('.color-ball').removeClass('active-theme');
+        $(this).addClass('active-theme');
+        if($('.color-ball').index(this) == 1) {
+            activeImage = "PackHack_Logo_Red.png";
+            nonActiveImage = "PackHack_Logo.png";
+        } else {
+            activeImage = "PackHack_Logo.png";
+            nonActiveImage = "PackHack_Logo_Red.png";
+        }
+        $('img').attr('src', activeImage);
+        
+        var mainColor = $(this).css('background-color');
+        var altColor = $(this).css('border-color');
+        document.documentElement.style.setProperty('--red', mainColor);
+        document.documentElement.style.setProperty('--off-white', altColor);
+        
+        
+        canvasBackgroundColor = mainColor;
+        canvasTextColor = altColor;
     });
     
     /*
