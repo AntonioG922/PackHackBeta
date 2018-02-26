@@ -29,6 +29,10 @@ $( document ).ready(function() {
     binary = binary.split("");
 
     var font_size = 10;
+    console.log(window.innerWidth);
+    if(window.innerWidth < 600) {
+        font_size = 7;
+    }
     var columns = c.width/font_size; //number of columns for the rain
     //an array of drops - one per column
     var drops = [];

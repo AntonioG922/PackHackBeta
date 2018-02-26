@@ -6,15 +6,25 @@
     --black: #2D2D2A;
 }
 
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+}
+
 body, html {
     position: relative;
-    height: 100%;
     width: 100% !important;
     min-width: 320px;
     max-width: 100%;
     margin: 0px;
     color: #2D2D2A;
     font-family: Montserrat;
+    -webkit-overflow-scrolling: touch; /* Flick scrolling for iPhones */
     scroll-behavior: smooth;
 }
 
