@@ -74,7 +74,7 @@ $( document ).ready(function() {
     if(isiPhone()) {
         time = 20;
     }
-    setInterval(draw, 33);
+    setInterval(draw, time);
     
     function isiPhone(){
         return (
