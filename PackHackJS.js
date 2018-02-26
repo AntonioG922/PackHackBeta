@@ -70,7 +70,7 @@ $( document ).ready(function() {
     setInterval(draw, 33);
     
     //Open answers for questions in FAQ
-    $('.question').on('click', function() {
+    $('.question').click(function() {
         $(this).toggleClass("reveal-answer");
     });
     
@@ -101,26 +101,4 @@ $( document ).ready(function() {
         canvasBackgroundColor = mainColor;
         canvasTextColor = altColor;
     });
-    
-    /*
-    $('.about-section').mousemove(function (e) {
-        var objLeft = $(this).offset().left;
-        var objTop = $(this).offset().top;
-
-        var objCenterX = objLeft + $(this).width() / 2;
-        var objCenterY = objTop + $(this).height() / 2;
-        
-        $(this).css("clip-path", function() {
-            var maxPercentChange = 10; //Adjust to create more skewed parallelogram
-            var relCursPosX = e.pageX - objCenterX;
-            var relCursPosY = e.pageY - objCenterY;
-            var topLeftCornerPos = 10 + (-1 * (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) + maxPercentChange/2 * (relCursPosY / (objCenterY - objTop))));
-            var botLeftCornerPos = 90 - (-1 * (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) - maxPercentChange/2 * (relCursPosY / (objCenterY - objTop))));
-            var topRightCornerPos = 10 + (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) - maxPercentChange/2 * (relCursPosY / (objCenterY - objTop)));
-            var botRightCornerPos = 90 - (maxPercentChange/2 * (relCursPosX / (objCenterX - objLeft)) + maxPercentChange/2 * (relCursPosY / (objCenterY - objTop)));
-                
-            return "polygon(0% " + topLeftCornerPos + "%, 100% " + topRightCornerPos + "%, 100% " + botRightCornerPos + "%, 0% " + botLeftCornerPos + "%)";
-        });
-    });
-    */
 });
