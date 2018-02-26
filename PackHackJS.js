@@ -29,7 +29,6 @@ $( document ).ready(function() {
     binary = binary.split("");
 
     var font_size = 10;
-    console.log(window.innerWidth);
     if(window.innerWidth < 600) {
         font_size = 7;
     }
@@ -71,7 +70,18 @@ $( document ).ready(function() {
         }
     }
 
+    var time = 33;
+    if(isiPhone()) {
+        time = 20;
+    }
     setInterval(draw, 33);
+    
+    function isiPhone(){
+        return (
+            (navigator.platform.indexOf("iPhone") != -1) ||
+            (navigator.platform.indexOf("iPod") != -1)
+        );
+    }
     
     //Open answers for questions in FAQ
     $('.question').click(function() {
