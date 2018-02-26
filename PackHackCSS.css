@@ -6,14 +6,6 @@
     --black: #2D2D2A;
 }
 
-html {
-    overflow: hidden; /* Prevent overscolling on mobile */
-}
-
-body {
-    overflow: auto; /* Prevent overscolling on mobile */
-}
-
 body, html {
     position: relative;
     height: 100%;
