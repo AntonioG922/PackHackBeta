@@ -230,7 +230,7 @@ canvas {
 }
 
 .reveal-answer {
-    max-height: 150px !important;
+    max-height: 250px !important;
     -webkit-transition: max-height .5s, height .5s; /* Safari */
     transition: max-height .5s, height .5s;
 }
@@ -291,11 +291,14 @@ canvas {
     .divider:before {
         border-right: 0px;
     }
+    .reveal-answer {
+        max-height: 315px !important;
+    }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 550px) {
     .reveal-answer {
-        max-height: 250px !important;
+        max-height: 450px !important;
     }
 }
 

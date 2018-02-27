@@ -72,7 +72,7 @@ $( document ).ready(function() {
 
     var time = 33;
     if(isiPhone()) {
-        time = 20;
+        time = 24;
     }
     setInterval(draw, time);
     
