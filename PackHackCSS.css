@@ -165,6 +165,10 @@ canvas {
     padding: 40px;
 }
 
+.icon-holder svg{
+    padding: 20px;
+}
+
 .icon-section svg {
     margin-bottom: 20px;
     color: var(--off-white) !important;
@@ -172,10 +176,6 @@ canvas {
     height: 100px;
     width: 100px !important;
     border-radius: 100%;
-}
-
-.icon-holder svg{
-    padding: 20px;
 }
 
 .divider:before {
